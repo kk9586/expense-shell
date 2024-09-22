@@ -43,6 +43,8 @@ VALIDATE $? "Installing MySQL Server"
 mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
 VALIDATE $? "setting up root password"
 
+mysql -h 172.31.31.34 -u root -p ExpenseApp@1
+
 systemctl enable mysqld &>>$LOG_FILE
 VALIDATE $? "Enabled MySQL Server"
 
