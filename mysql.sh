@@ -26,10 +26,10 @@ fi
 VALIDATE(){
        if [ $1 -eq 0 ]
           then  
-            echo -e "$2 is $G success $N .. check it" &>>$LOG_FILE
+            echo -e "$2 is $G success $N .. check it" | tee -a $LOG_FILE
             exit 1
           else 
-            echo -e "$2 is $R failed. $N "  &>>$LOG_FILE
+            echo -e "$2 is $R failed. $N "  | tee -a $LOG_FILE
           fi
 }
 
@@ -46,6 +46,6 @@ VALIDATE $? "enabled mysql server"
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "start mysql server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
 VALIDATE $? "setting root password"
 
