@@ -38,9 +38,9 @@ echo "script started executing at $(date)" | tee -a $LOG_FILE
 CHECK_ROOT
 
 dnf install mysql-server -y &>>$LOG_FILE
-VALIDATE $? "Installing mysql-server is"
+VALIDATE $? "Installing mysql-server"
 
-systemctl enabled mysqld &>>$LOG_FILE
+systemctl enable mysqld &>>$LOG_FILE
 VALIDATE $? "enabled mysql server"
 
 systemctl start mysqld &>>$LOG_FILE
