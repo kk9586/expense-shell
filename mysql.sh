@@ -41,11 +41,11 @@ dnf install mysql-server -y tee -a $LOG_FILE
 VALIDATE $? "installing mysql server"
 
 systemctl enable mysqld tee -a $LOG_FILE
-VALIDATE $? "installing mysql server"
+VALIDATE $? "enabling mysql server"
 
 systemctl start mysqld tee -a $LOG_FILE
-VALIDATE $? "installing mysql server"
+VALIDATE $? "started mysql server"
 
 mysql_secure_installation --set-root-pass ExpenseApp@1 tee -a $LOG_FILE
-VALIDATE $? "installing mysql server"
+VALIDATE $? "setting up root password"
 
