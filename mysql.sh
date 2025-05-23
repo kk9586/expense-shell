@@ -25,12 +25,12 @@ fi
 
 VALIDATE(){
        if [ $1 -eq 0 ]
-          then  
+       then  
             echo -e "$2 is $G success $N" | tee -a $LOG_FILE
             exit 1
-          else 
+       else 
             echo -e "$2 is $R failed. $N" | tee -a $LOG_FILE
-          fi
+       fi
 }
 
 echo "script started executing at $(date)" | tee -a $LOG_FILE 
@@ -47,7 +47,6 @@ systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "started mysql server"
 
 mysql -h mysql.kkdevops.online -u root -pExpenseApp@1 'show databases;' &>>$LOG_FILE
-
 if [ $? -ne 0 ]
 then 
     echo "mysql root password is not setup, setting now" &>>$LOG_FILE
@@ -55,4 +54,4 @@ then
     VALIDATE $? "setting up root password"
 else
     echo "mysql root pssword is already setup...$Y skipping now $N" | tee -a $LOG_FILE   
-
+fi
