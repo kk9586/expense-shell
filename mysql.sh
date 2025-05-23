@@ -11,7 +11,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-# USERID=$(id -u)
+ USERID=$(id -u)
 # echo "User Id is : $USERID"
 
 CHECK_ROOT(){
