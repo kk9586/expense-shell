@@ -11,8 +11,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-USERID=$(id -u)
-echo "User Id is : $USERID"
+# USERID=$(id -u)
+# echo "User Id is : $USERID"
 
 CHECK_ROOT(){
 if [ $USERID -ne 0 ]
@@ -37,7 +37,7 @@ echo "script started executing at $(date)" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
-dnf install mysql-server -y 
+dnf install mysql-server -y &>> $LOG_FILE
 VALIDATE $? "installing mysql server"
 
 systemctl enable mysqld
