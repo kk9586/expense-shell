@@ -41,11 +41,11 @@ dnf install mysql-server -y
 VALIDATE $? "installing mysql server"
 
 systemctl enable mysqld
-VALIDATE $? "enabled mysql server"
+VALIDATE $? "installing mysql server"
 
 systemctl start mysqld
-VALIDATE $? "started mysql server"
+VALIDATE $? "installing mysql server"
 
 mysql_secure_installation --set-root-pass ExpenseApp@1
-VALIDATE $? "setting up root password"
+VALIDATE $? "installing mysql server"
 
