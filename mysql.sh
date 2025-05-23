@@ -40,12 +40,12 @@ CHECK_ROOT
 dnf install mysql-server -y
 VALIDATE $? "installing mysql server"
 
-systemctl enable mysqld &>>$LOG_FILE
+systemctl enable mysqld
 VALIDATE $? "enabled mysql server"
 
-systemctl start mysqld &>>$LOG_FILE
+systemctl start mysqld
 VALIDATE $? "started mysql server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1  &>>$LOG_FILE
+mysql_secure_installation --set-root-pass ExpenseApp@1
 VALIDATE $? "setting up root password"
 
